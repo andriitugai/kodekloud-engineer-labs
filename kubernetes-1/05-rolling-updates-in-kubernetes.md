@@ -59,4 +59,19 @@ kubectl edit deployments nginx-deployment --record
 kubectl describe deployments nginx-deployment
 ```
 
+### Another way
+1. Run
+```
+kubectl set image deployment nginx-deployment nginx-container:nginx:1.18 --record
+```
+2. Check 
+```
+kubectl rollout history deployment nginx-deployment
+```
+and 
+```
+kubectl describe deployments nginx-deployment
+```
+
+
 
