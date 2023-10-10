@@ -39,7 +39,7 @@ metadata:
   name: time-config
   namespace: nautilus
 data:
-  time_freq: "3"
+  TIME_FREQ: "3"
 ```
 
 ```time-check-box.yaml```
@@ -64,7 +64,7 @@ spec:
       valueFrom:
         configMapKeyRef:
           name: time-config
-          key: time_freq
+          key: TIME_FREQ
     volumeMounts:
     - name: log-volume
       mountPath: "/opt/dba/time"
