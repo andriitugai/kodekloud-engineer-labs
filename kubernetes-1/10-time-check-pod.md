@@ -39,7 +39,7 @@ metadata:
   name: time-config
   namespace: nautilus
 data:
-  TIME_FREQ: "3"
+  time_freq: "3"
 ```
 
 ```time-check-box.yaml```
@@ -55,12 +55,10 @@ spec:
   containers:
   - name: time-check
     image: busybox:latest
-    command: 
-    - ["/bin/sh", "-c"]
-      args:
-        [
-          "while true; do date; sleep $TIME_FREQ;done > /opt/dba/time/time-check.log",
-        ]
+    command:
+    - /bin/sh
+    - -c
+    - while true; do date; sleep $TIME_FREQ;done > /opt/dba/time/time-check.log
     env:
     - name: TIME_FREQ
       valueFrom:
@@ -90,8 +88,12 @@ kubectl create -f time-check-pod.yaml --namespace=nautilus
 kubectl get pods --namespace=nautilus
 ```
 ```
-kubectl logs time-check --namespace=nautilus
+kubectl exec -it --namespace=nautilus time-check -- /bin/sh
 ```
-
-TIME_FREQ value is not set to 3
-Output of time-check.log is incorrect
+inside the Pod:
+```
+cat /opt/dba/time/time-check.log
+```
+```
+exit
+```
