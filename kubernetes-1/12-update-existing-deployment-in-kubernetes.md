@@ -5,11 +5,11 @@ There is an application deployed on Kubernetes cluster. Recently, the Nautilus a
 
 We already have a deployment named nginx-deployment and service named nginx-service. Some changes need to be made in this deployment and service, make sure not to delete the deployment and service.
 
-1.) Change the service nodeport from 30008 to 32165
+1.) Change the service nodeport from <span style='color:cyan'>**30008**</span> to <span style='color:cyan'>**32165**</span>
 
-2.) Change the replicas count from 1 to 5
+2.) Change the replicas count from <span style='color:cyan'>**1**</span> to <span style='color:cyan'>**5**</span>
 
-3.) Change the image from nginx:1.19 to nginx:latest
+3.) Change the image from <span style='color:cyan'>**nginx:1.19**</span> to <span style='color:cyan'>**nginx:latest**</span>
 
 Note: The kubectl utility on jump_host has been configured to work with the kubernetes cluster.
 
