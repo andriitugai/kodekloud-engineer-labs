@@ -64,7 +64,7 @@ nautilus-28282160   0/1           0s         0s
 nautilus-28282160   0/1           4s         4s
 nautilus-28282160   1/1           4s         4s
 ```
-
+Run
 ```
 export pods=$(kubectl get pods --selector=job-name=nautilus-28282160 --output=jsonpath={.items[*].metadata.name})
 
