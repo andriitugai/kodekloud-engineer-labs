@@ -1,4 +1,4 @@
-## Linux
+## Configure Local YUM repos
 
 The Nautilus production support team and security team had a meeting last month in which they decided to use local yum repositories for maintaing packages needed for their servers. For now they have decided to configure a local yum repo on <span style='color:cyan'>**Nautilus Backup Server**</span>. This is one of the pending items from last month, so please configure a local yum repository on <span style='color:cyan'>**Nautilus Backup Server**</span> as per details given below.
 
