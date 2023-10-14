@@ -5,6 +5,10 @@ Some users of the monitoring app have reported issues with xFusionCorp Industrie
 ### Solution
 
 1. SSH to the server
+2. Run 
+```
+sudo systemctl status postfix.service
+```
 2. Comment on ```local_interfaces: localhost``` line
 ```
 sudo vi /etc/postfix/main.cf
