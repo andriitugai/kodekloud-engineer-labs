@@ -1,0 +1,35 @@
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ic-deploy-xfusion
+  labels:
+    app: ic-xfusion
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ic-xfusion
+  template:
+    metadata:
+      labels:
+        app: ic-xfusion
+    spec:
+      containers:
+        - name: ic-main-xfusion
+          image: centos:latest
+          command: ['/bin/bash', '-c', 'while true; do cat /ic/news; sleep 5; done']
+          volumeMounts:
+            - name: ic-volume-xfusion
+              mountPath: /ic
+      initContainers:
+        - name: ic-msg-xfusion
+          image: centos:latest
+          command: ['/bin/bash', '-c', 'echo Init Done - Welcome to xFusionCorp Industries > /ic/news']
+          volumeMounts:
+            - name: ic-volume-xfusion
+              mountPath: /ic
+      volumes:
+        - name: ic-volume-xfusion
+          emptyDir: {}
+```
